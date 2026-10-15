@@ -1,0 +1,18 @@
+{
+  "id": "jhonmccarty/b13-agent-tpu-training",
+  "title": "B13 Agent TPU Training",
+  "code_file": "train_b13_agent_kaggle.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_tpu": true,
+  "enable_internet": true,
+  "dataset_sources": [
+    "jhonmccarty/b13-cybersecurity-datasets",
+    "jhonmccarty/b13-agent-code"
+  ],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}

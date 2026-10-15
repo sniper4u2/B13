@@ -1,0 +1,461 @@
+{
+  "schema_version": 1,
+  "method": {
+    "csv_parser": "Python csv.DictReader with multiline fields enabled and expanded field-size limit",
+    "raw_record_text_emitted": false,
+    "source_files_modified": false,
+    "toolset_zip_opened": false
+  },
+  "csv_sources": [
+    {
+      "path": "data/raw/csv/cve/NVD_Cybersecurity_Dataset.csv",
+      "bytes": 243753762,
+      "records": 337705,
+      "headers": [
+        "CVE_ID",
+        "Published_Date",
+        "Publish_Year",
+        "Publish_Month",
+        "Description",
+        "Clean_Description",
+        "Word_Count",
+        "Char_Length",
+        "Flag_XSS",
+        "Flag_SQLi",
+        "Flag_Buffer_Overflow",
+        "Flag_RCE",
+        "Flag_Privilege_Escalation",
+        "Flag_DoS",
+        "Flag_Directory_Traversal",
+        "CVSS_Base_Score",
+        "Severity",
+        "Exploitability_Score",
+        "Impact_Score"
+      ],
+      "bad_width_records": 0,
+      "blank_cells": 0,
+      "key_column": "CVE_ID",
+      "unique_keys": 337705,
+      "duplicate_keys": 0
+    },
+    {
+      "path": "data/raw/csv/cve/cpe.csv",
+      "bytes": 14738011,
+      "records": 269236,
+      "headers": [
+        "cpe23Uri"
+      ],
+      "bad_width_records": 0,
+      "blank_cells": 0,
+      "key_column": null,
+      "unique_keys": null,
+      "duplicate_keys": null
+    },
+    {
+      "path": "data/raw/csv/cve/cve_combined.csv",
+      "bytes": 43374083,
+      "records": 119864,
+      "headers": [
+        "cve_id",
+        "published_date",
+        "updated_date",
+        "cisa_kev",
+        "cisa_kev_date",
+        "cvss_version",
+        "base_score",
+        "base_severity",
+        "attack_vector",
+        "attack_complexity",
+        "privileges_required",
+        "user_interaction",
+        "scope",
+        "attack_requirements",
+        "confidentiality_impact",
+        "integrity_impact",
+        "availability_impact",
+        "impacted_vendor",
+        "impacted_products",
+        "vulnerable_versions",
+        "cwe_number",
+        "cwe_description",
+        "ssvc_timestamp",
+        "ssvc_exploitation",
+        "ssvc_automatable",
+        "ssvc_technical_impact",
+        "ssvc_decision"
+      ],
+      "bad_width_records": 0,
+      "blank_cells": 235022,
+      "key_column": "cve_id",
+      "unique_keys": 119864,
+      "duplicate_keys": 0
+    },
+    {
+      "path": "data/raw/csv/cve/cve_dataset.csv",
+      "bytes": 27688942,
+      "records": 39810,
+      "headers": [
+        "cve_number",
+        "cve_title",
+        "cve_description",
+        "vendor",
+        "product",
+        "problem_type",
+        "published_date"
+      ],
+      "bad_width_records": 0,
+      "blank_cells": 0,
+      "key_column": "cve_number",
+      "unique_keys": 39810,
+      "duplicate_keys": 0
+    },
+    {
+      "path": "data/raw/csv/cve/cve_fix_pairs-selected-columns.csv",
+      "bytes": 765615,
+      "records": 104,
+      "headers": [
+        "cve_id",
+        "vulnerability_type",
+        "language",
+        "file",
+        "method",
+        "vulnerable_code",
+        "fixed_code",
+        "commit_hash",
+        "repo",
+        "commit_msg"
+      ],
+      "bad_width_records": 0,
+      "blank_cells": 0,
+      "key_column": "cve_id",
+      "unique_keys": 52,
+      "duplicate_keys": 52
+    },
+    {
+      "path": "data/raw/csv/cve/known_exploited_vulnerabilities.csv",
+      "bytes": 1051684,
+      "records": 1739,
+      "headers": [
+        "cveID",
+        "vendorProject",
+        "product",
+        "vulnerabilityName",
+        "dateAdded",
+        "shortDescription",
+        "requiredAction",
+        "dueDate",
+        "knownRansomwareCampaignUse",
+        "forensicTriage",
+        "notes",
+        "cwes"
+      ],
+      "bad_width_records": 0,
+      "blank_cells": 175,
+      "key_column": "cveID",
+      "unique_keys": 1739,
+      "duplicate_keys": 0
+    },
+    {
+      "path": "data/raw/csv/security-benchmarks/KDDTest.csv",
+      "bytes": 3442131,
+      "records": 22544,
+      "headers": [
+        "duration",
+        "protocol_type",
+        "service",
+        "flag",
+        "src_bytes",
+        "dst_bytes",
+        "land",
+        "wrong_fragment",
+        "urgent",
+        "hot",
+        "num_failed_logins",
+        "logged_in",
+        "num_compromised",
+        "root_shell",
+        "su_attempted",
+        "num_root",
+        "num_file_creations",
+        "num_shells",
+        "num_access_files",
+        "num_outbound_cmds",
+        "is_host_login",
+        "is_guest_login",
+        "count",
+        "srv_count",
+        "serror_rate",
+        "srv_serror_rate",
+        "rerror_rate",
+        "srv_rerror_rate",
+        "same_srv_rate",
+        "diff_srv_rate",
+        "srv_diff_host_rate",
+        "dst_host_count",
+        "dst_host_srv_count",
+        "dst_host_same_srv_rate",
+        "dst_host_diff_srv_rate",
+        "dst_host_same_src_port_rate",
+        "dst_host_srv_diff_host_rate",
+        "dst_host_serror_rate",
+        "dst_host_srv_serror_rate",
+        "dst_host_rerror_rate",
+        "dst_host_srv_rerror_rate",
+        "attack",
+        "level"
+      ],
+      "bad_width_records": 0,
+      "blank_cells": 0,
+      "key_column": null,
+      "unique_keys": null,
+      "duplicate_keys": null
+    },
+    {
+      "path": "data/raw/csv/unclassified/final_dataset.csv",
+      "bytes": 370622156,
+      "records": 515345,
+      "headers": [
+        "label",
+        "text"
+      ],
+      "bad_width_records": 0,
+      "blank_cells": 0,
+      "key_column": null,
+      "unique_keys": null,
+      "duplicate_keys": null
+    }
+  ],
+  "cvelist_v5": {
+    "path": "/home/b13/Desktop/b13 agent/b13_agent/repositories/github/CVEProject/cvelistV5/cves",
+    "record_files": 404333,
+    "unique_cve_ids": 404333,
+    "duplicate_cve_ids": 0,
+    "invalid_json_files": 0,
+    "non_object_json_files": 0,
+    "published_records": 385869,
+    "published_with_english_description": 385869,
+    "published_without_english_description": 0,
+    "published_with_affected": 385869,
+    "published_with_metrics": 173581,
+    "states": {
+      "PUBLISHED": 385869,
+      "REJECTED": 18464
+    },
+    "records_by_year": {
+      "1999": 1579,
+      "2000": 1243,
+      "2001": 1556,
+      "2002": 2393,
+      "2003": 1555,
+      "2004": 2707,
+      "2005": 4770,
+      "2006": 7145,
+      "2007": 6580,
+      "2008": 7179,
+      "2009": 5054,
+      "2010": 5249,
+      "2011": 4899,
+      "2012": 5939,
+      "2013": 6832,
+      "2014": 9003,
+      "2015": 8780,
+      "2016": 10649,
+      "2017": 17108,
+      "2018": 17817,
+      "2019": 17625,
+      "2020": 21077,
+      "2021": 23470,
+      "2022": 27556,
+      "2023": 31451,
+      "2024": 39257,
+      "2025": 45347,
+      "2026": 70513
+    },
+    "records_with_cna_container": 404333,
+    "missing_or_empty_fields": {
+      "cna.affected": 18464,
+      "cna.descriptions": 18464,
+      "cna.metrics": 230752,
+      "cna.problemTypes": 41252,
+      "cna.references": 18464
+    },
+    "description_languages": {
+      "en": 372917,
+      "en-US": 12952,
+      "de": 10057,
+      "es": 1
+    },
+    "csv_id_overlap": {
+      "NVD_Cybersecurity_Dataset.csv": {
+        "unique_ids": 337705,
+        "ids_in_cvelist": 337705,
+        "ids_not_in_cvelist": 0
+      },
+      "cve_combined.csv": {
+        "unique_ids": 119864,
+        "ids_in_cvelist": 119864,
+        "ids_not_in_cvelist": 0
+      },
+      "cve_dataset.csv": {
+        "unique_ids": 39810,
+        "ids_in_cvelist": 39810,
+        "ids_not_in_cvelist": 0
+      },
+      "cve_fix_pairs-selected-columns.csv": {
+        "unique_ids": 52,
+        "ids_in_cvelist": 52,
+        "ids_not_in_cvelist": 0
+      },
+      "known_exploited_vulnerabilities.csv": {
+        "unique_ids": 1739,
+        "ids_in_cvelist": 1739,
+        "ids_not_in_cvelist": 0
+      }
+    },
+    "published_ids_mentioned_in_registered_sft": 9987,
+    "published_ids_available_for_new_raw_cve_sft": 375882
+  },
+  "cve_source_overlap": {
+    "csv_pairwise": {
+      "NVD_Cybersecurity_Dataset.csv <> cve_combined.csv": {
+        "left_unique_ids": 337705,
+        "right_unique_ids": 119864,
+        "shared_ids": 110407
+      },
+      "NVD_Cybersecurity_Dataset.csv <> cve_dataset.csv": {
+        "left_unique_ids": 337705,
+        "right_unique_ids": 39810,
+        "shared_ids": 6858
+      },
+      "NVD_Cybersecurity_Dataset.csv <> cve_fix_pairs-selected-columns.csv": {
+        "left_unique_ids": 337705,
+        "right_unique_ids": 52,
+        "shared_ids": 27
+      },
+      "NVD_Cybersecurity_Dataset.csv <> known_exploited_vulnerabilities.csv": {
+        "left_unique_ids": 337705,
+        "right_unique_ids": 1739,
+        "shared_ids": 1601
+      },
+      "cve_combined.csv <> cve_dataset.csv": {
+        "left_unique_ids": 119864,
+        "right_unique_ids": 39810,
+        "shared_ids": 15157
+      },
+      "cve_combined.csv <> cve_fix_pairs-selected-columns.csv": {
+        "left_unique_ids": 119864,
+        "right_unique_ids": 52,
+        "shared_ids": 23
+      },
+      "cve_combined.csv <> known_exploited_vulnerabilities.csv": {
+        "left_unique_ids": 119864,
+        "right_unique_ids": 1739,
+        "shared_ids": 1500
+      },
+      "cve_dataset.csv <> cve_fix_pairs-selected-columns.csv": {
+        "left_unique_ids": 39810,
+        "right_unique_ids": 52,
+        "shared_ids": 29
+      },
+      "cve_dataset.csv <> known_exploited_vulnerabilities.csv": {
+        "left_unique_ids": 39810,
+        "right_unique_ids": 1739,
+        "shared_ids": 121
+      },
+      "cve_fix_pairs-selected-columns.csv <> known_exploited_vulnerabilities.csv": {
+        "left_unique_ids": 52,
+        "right_unique_ids": 1739,
+        "shared_ids": 2
+      }
+    },
+    "with_existing_cve_sft": {
+      "train_unique_ids": 9000,
+      "validation_unique_ids": 1000,
+      "train_validation_overlap": 0,
+      "cvelist_ids_already_in_sft": 10000,
+      "cvelist_ids_outside_sft": 394333,
+      "csv_source_ids_already_in_sft": {
+        "NVD_Cybersecurity_Dataset.csv": 0,
+        "cve_combined.csv": 6519,
+        "cve_dataset.csv": 9037,
+        "cve_fix_pairs-selected-columns.csv": 0,
+        "known_exploited_vulnerabilities.csv": 22
+      },
+      "cvelist_sft_train_validation_ids": {
+        "train_ids_in_cvelist": 9000,
+        "validation_ids_in_cvelist": 1000
+      },
+      "cve_mentions_across_registered_sft": {
+        "by_split_unique_mentions": {
+          "master-cleaned": {
+            "train": 9074,
+            "validation": 1033
+          },
+          "cve-enhanced-v3": {
+            "train": 9082,
+            "validation": 1021
+          },
+          "code-security-v2": {
+            "train": 0,
+            "validation": 0
+          },
+          "redteam-pentest": {
+            "train": 4,
+            "validation": 0
+          },
+          "agent-skills-tool-calling": {
+            "train": 0,
+            "validation": 0
+          }
+        },
+        "train_unique_mentions": 9262,
+        "validation_unique_mentions": 1211,
+        "train_validation_shared_mentions": 380,
+        "all_unique_mentions": 10093
+      }
+    },
+    "training_policy": "Do not add any raw-derived CVE example for an ID already present in the existing CVE SFT train or validation splits."
+  },
+  "ssh_research_data": {
+    "files": [
+      {
+        "path": "repositories/github/research/SSH-Shell-Attacks/data/processed/BOW_DATASETS/ssh_attacks_bow.parquet",
+        "bytes": 2312823,
+        "rows": 233035
+      },
+      {
+        "path": "repositories/github/research/SSH-Shell-Attacks/data/processed/TFIDF_DATASETS/ssh_attacks_tfidf.parquet",
+        "bytes": 4854840,
+        "rows": 233035
+      },
+      {
+        "path": "repositories/github/research/SSH-Shell-Attacks/data/processed/ssh_attacks_decoded.parquet",
+        "bytes": 23011019,
+        "rows": 233035
+      },
+      {
+        "path": "repositories/github/research/SSH-Shell-Attacks/data/raw/ssh_attacks.parquet",
+        "bytes": 36424157,
+        "rows": 233035
+      }
+    ],
+    "row_counts_match_across_variants": true,
+    "license_status": "repository has an MIT license, but the dataset-specific license and privacy/provenance terms are not established",
+    "training_disposition": "excluded; session logs may contain credentials or personal identifiers; do not inspect or transform until pre-scrubbed data and authorization are provided"
+  },
+  "source_disposition": {
+    "cvelistV5": {
+      "use": "eligible for local derived SFT from PUBLISHED records after applying attribution",
+      "terms_url": "https://www.cve.org/Legal/TermsOfUse",
+      "requirements": "CVE Usage grants reproduction and derivative-work rights; reproduce MITRE's copyright designation and the license in copies.",
+      "third_party_note": "CNA-provided records and external references may carry additional rights or terms; review per-source attribution before redistribution."
+    },
+    "KDDTest.csv": "evaluation-only benchmark; exclude from training",
+    "unclassified/final_dataset.csv": "exclude pending source, license, and content review",
+    "data.zip": "participant user-action logs; exclude pending privacy, consent, and provenance review",
+    "toolset.zip": "not opened; archive listing contains a .env entry",
+    "SSH-Shell-Attacks dataset": "excluded; only Parquet footer metadata was read after session-log schema indicated possible credential or personal-identifier content",
+    "PDF papers and guidance": "reference material only; do not convert document text into SFT examples without rights and source-dataset verification",
+    "Git repositories": "upstream schemas, code, and references; not direct SFT examples"
+  }
+}

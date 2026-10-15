@@ -1,0 +1,27 @@
+.venv/
+__pycache__/
+*.py[cod]
+
+# Bulk source corpora and imported Git clones are locally managed data.
+data/sources/
+data/raw/
+data/exports/
+repositories/github/
+agent_skills/library/skills/
+
+# Local model files and training outputs
+models/base/*
+models/checkpoints/*
+models/adapters/*
+training/reports/*
+training/runs/*
+*.safetensors
+*.gguf
+*.ckpt
+*.pt
+*.pth
+
+# Local secrets and machine-specific environment files
+.env
+.env.*
+!.env.example

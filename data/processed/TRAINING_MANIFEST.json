@@ -1,0 +1,22 @@
+{
+  "agent_name": "b13",
+  "base_model": "Qwen/Qwen2.5-Coder-32B-Instruct",
+  "message_field": "messages",
+  "notes": "All training files use the 'messages' column [system,user,assistant]. Tool-execution trajectories teach real B13 tool calls: forensics_audit, vulnerability_scan, port_scan, c2_cve_exploit_execute, metasploit_search, metasploit_execute, c2_generate_payload, final_answer.",
+  "train_files": [
+    {"path": "b13_agent/data/processed/cve_funcs_tool_execution_sft.parquet", "rows": 34971, "teaches": "tool_execution_code_audit", "tool_calls": "100%", "source": "cve_funcs.csv (38k real CVE vuln/fix pairs, 10 languages)"},
+    {"path": "b13_agent/data/processed/cve_tool_execution_sft.parquet", "rows": 10000, "teaches": "tool_execution_exploit_chain", "tool_calls": "100%", "source": "cve_sft_enhanced_v3"},
+    {"path": "b13_agent/data/sources/corpora/datasets-workbench/processed/master_sft_enhanced_unified.parquet", "rows": 16874, "teaches": "prose_analysis"},
+    {"path": "b13_agent/data/sources/corpora/datasets-workbench/processed/vulnerabilities/cve_sft_enhanced_reasoning.parquet", "rows": 10000, "teaches": "reasoning"},
+    {"path": "b13_agent/data/sources/corpora/datasets-workbench/processed/code_security/code_security_enhanced_reasoning.parquet", "rows": 5591, "teaches": "code_security"},
+    {"path": "b13_agent/data/sources/corpora/datasets-workbench/processed/redteam_pentest/blackhat_ai_enhanced_chatml.parquet", "rows": 1003, "teaches": "redteam"}
+  ],
+  "excluded": [
+    {"path": ".../vulnerabilities/cve_sft_dataset_v5.parquet", "reason": "No messages column (raw fields only); duplicate of cve_sft_enhanced_v3 CVEs"},
+    {"path": ".../agent_skills/agent_skills_tool_calling_sft.parquet", "reason": "Uses generic run_skill()/execute() vocabulary, not B13 tool names"}
+  ],
+  "raw_sources_converted": [
+    {"path": "./cve_funcs.csv", "size": "14GB", "status": "converted to cve_funcs_tool_execution_sft.parquet"},
+    {"path": "b13_agent/data/raw/csv/cve/NVD_Cybersecurity_Dataset.csv", "size": "233MB", "status": "raw descriptions - not yet converted"}
+  ]
+}

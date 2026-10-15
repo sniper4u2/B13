@@ -1,0 +1,66 @@
+{
+  "model": {
+    "repo_id": "Qwen/Qwen3-30B-A3B",
+    "revision": "ad44e777bcd18fa416d9da3bd8f70d33ebb85d39",
+    "license": "apache-2.0",
+    "max_length": 2048
+  },
+  "dataset": {
+    "catalog": "data/catalog.json",
+    "split_sets": [
+      "master-cleaned",
+      "cve-enhanced-v3",
+      "code-security-v2",
+      "redteam-pentest",
+      "agent-skills-tool-calling"
+    ],
+    "evaluation_policy": "Use registered train/validation split files only; deduplicate exact message sequences globally and remove training examples that share any exact CVE ID mention with validation.",
+    "source_warnings": {
+      "agent-skills-tool-calling": "Its standalone aggregate and registered split files have unresolved 18/14 ID differences; included split files are kept as their own version and are not mixed with the aggregate."
+    }
+  },
+  "lora": {
+    "rank": 16,
+    "alpha": 32,
+    "dropout": 0.05,
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj"
+    ]
+  },
+  "training": {
+    "epochs": 2,
+    "max_steps": -1,
+    "per_device_train_batch_size": 1,
+    "per_device_eval_batch_size": 1,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 0.00002,
+    "warmup_ratio": 0.03,
+    "weight_decay": 0.01,
+    "logging_steps": 10,
+    "save_steps": 100,
+    "eval_steps": 100,
+    "save_total_limit": 2,
+    "bf16": true,
+    "gradient_checkpointing": true,
+    "fsdp": "full_shard auto_wrap",
+    "fsdp_config": {
+      "transformer_layer_cls_to_wrap": [
+        "Qwen3MoeDecoderLayer"
+      ],
+      "xla": true,
+      "xla_fsdp_settings": {
+        "compute_dtype": "bfloat16",
+        "shard_param_on_dim_0": true
+      }
+    }
+  },
+  "runtime": {
+    "accelerator": "TPU",
+    "expected_topology": "8-core Kaggle TPU v5e",
+    "data_dir_env": "B13_DATA_DIR",
+    "output_dir": "/kaggle/working/b13-qwen3-30b-a3b"
+  }
+}

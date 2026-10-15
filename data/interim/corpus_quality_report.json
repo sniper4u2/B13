@@ -1,0 +1,61 @@
+{
+  "input": "/home/b13/Desktop/b13 agent/b13_agent/data/exports/b13-agent-full/train.jsonl",
+  "total_rows": 78367,
+  "clean_rows": 78367,
+  "rows_with_defects": 0,
+  "clean_pct": 100.0,
+  "defect_classes": {},
+  "source_distribution": {
+    "cve_funcs_tool_execution_sft": 34905,
+    "master_sft_enhanced_unified": 16868,
+    "cve_tool_execution_sft": 10000,
+    "cve_sft_enhanced_reasoning": 10000,
+    "code_security_enhanced_reasoning": 5591,
+    "blackhat_ai_enhanced_chatml": 1003
+  },
+  "role_counts": {
+    "assistant": 79149,
+    "user": 78875,
+    "system": 78367,
+    "tool": 274
+  },
+  "distinct_system_prompt_prefixes": 7,
+  "top_system_prompts": [
+    [
+      "You are B13, an autonomous cybersecurity AI agent (Clearance 55). You solve task",
+      44905
+    ],
+    [
+      "You are an expert AI security research and technical analysis model.",
+      10000
+    ],
+    [
+      "You are an expert AI security architect and senior software engineer specializin",
+      10000
+    ],
+    [
+      "You are an expert security code reviewer.",
+      5591
+    ],
+    [
+      "You are an expert security code reviewer. Analyze the code snippet for security ",
+      5591
+    ]
+  ],
+  "grounding": {
+    "tool_exec_with_obs": 44905,
+    "tool_exec_total": 44905,
+    "tool_exec_with_final": 44905
+  },
+  "char_length": {
+    "p50": 3685,
+    "p95": 6393,
+    "p99": 11966,
+    "max": 20489
+  },
+  "approx_over_context_tokens": {
+    "2048": 2166,
+    "8192": 0
+  },
+  "note": "structural quality only; no content filtering/censoring applied"
+}

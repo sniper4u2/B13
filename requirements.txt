@@ -1,0 +1,6 @@
+gradio==6.24.0
+smolagents
+kaggle
+pandas
+numpy
+duckduckgo-search

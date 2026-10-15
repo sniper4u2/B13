@@ -1,0 +1,341 @@
+{
+  "schema_version": 1,
+  "canonical_source_root": "sources/corpora/datasets-workbench/processed",
+  "policy": {
+    "source_files_are_read_only": true,
+    "catalog_claims_are_verified": false,
+    "row_counts_verified_for_current_files": true,
+    "evaluation_data_is_training_data": false
+  },
+  "raw_sources": [
+    {
+      "id": "cvelist-v5",
+      "path": "raw/cve/cvelistV5/cves/",
+      "format": "CVE JSON",
+      "role": "raw_records",
+      "record_files": 404333,
+      "unique_cve_ids": 404333,
+      "published_records": 385869,
+      "rejected_records": 18464,
+      "license_status": "CVE Program Terms of Use grant reproduction and derivative-work rights for CVE usage, subject to attribution and reproducing the license",
+      "license_url": "https://www.cve.org/Legal/TermsOfUse",
+      "third_party_rights_note": "Review CNA-contributed content and external references separately before redistribution."
+    },
+    {
+      "id": "cve-reference-ingest",
+      "path": "raw/cve/reference-ingest/",
+      "format": "mixed",
+      "role": "raw_references",
+      "files": 31269,
+      "license_status": "unverified; reference material, not direct SFT input"
+    },
+    {
+      "id": "cve-raw-csvs",
+      "path": "raw/csv/cve/",
+      "format": "csv",
+      "role": "raw_cve_and_vulnerability_tables",
+      "files": {
+        "cpe.csv": {"bytes": 14738011, "verified_data_records": 269236},
+        "cve_combined.csv": {"bytes": 43374083, "physical_lines": 119893, "verified_data_records": 119864, "unique_cve_ids": 119864, "blank_cells": 235022},
+        "cve_dataset.csv": {"bytes": 27688942, "physical_lines": 130321, "verified_data_records": 39810, "unique_cve_ids": 39810},
+        "cve_fix_pairs-selected-columns.csv": {"bytes": 765615, "physical_lines": 18093, "verified_data_records": 104, "unique_cve_ids": 52},
+        "known_exploited_vulnerabilities.csv": {"bytes": 1051684, "physical_lines": 1740, "verified_data_records": 1739, "unique_cve_ids": 1739},
+        "NVD_Cybersecurity_Dataset.csv": {"bytes": 243753762, "physical_lines": 1008702, "verified_data_records": 337705, "unique_cve_ids": 337705}
+      },
+      "line_count_note": "verified with multiline-aware CSV parsing; physical line counts differ from logical record counts",
+      "cross_source_note": "CVE IDs are all present in cvelistV5; per-file and SFT overlaps are in interim/raw-source-audit.json"
+    },
+    {
+      "id": "kdd-network-security",
+      "path": "raw/csv/security-benchmarks/KDDTest.csv",
+      "format": "csv",
+      "role": "benchmark",
+      "verified_data_records": 22544
+    },
+    {
+      "id": "final-dataset",
+      "path": "raw/csv/unclassified/final_dataset.csv",
+      "format": "csv",
+      "role": "unclassified",
+      "columns": ["label", "text"],
+      "physical_newline_count": 515346,
+      "verified_data_records": 515345,
+      "license_status": "unknown",
+      "use_for_training": false
+    },
+    {
+      "id": "source-archives",
+      "path": "raw/archives/unreviewed/",
+      "format": "zip",
+      "role": "unclassified_archives",
+      "files": ["data.zip", "toolset.zip"],
+      "extracted": false,
+      "notes": [
+        "data.zip contains participant user-action logs; exclude pending privacy, consent, source, and license review.",
+        "toolset.zip contains a .env-named member and has not been opened."
+      ]
+    },
+    {
+      "id": "huggingface-cache-snapshots",
+      "path": "raw/huggingface-cache/",
+      "format": "huggingface_hub_cache",
+      "role": "downloaded_dataset_metadata",
+      "complete": false,
+      "notes": [
+        "nebius/SWE-rebench-V2-PRs has three unresolved Parquet shard links.",
+        "Setloop/LLM-Attacker cache contains repository metadata only."
+      ]
+    },
+    {
+      "id": "non-b13-banknote-benchmark",
+      "path": "excluded/non-b13-benchmarks/BankNoteAuthentication.csv",
+      "format": "csv",
+      "role": "excluded_from_b13_training",
+      "reason": "Numeric banknote-authentication classification data; no B13 agent-training use identified."
+    },
+    {
+      "id": "blackhat-ai-raw-json",
+      "path": "sources/corpora/datasets-hf-export/blackhat_ai.json",
+      "format": "json",
+      "role": "raw_conversation_dataset",
+      "records": 1003,
+      "possible_derived_counterpart": "redteam-pentest-sft",
+      "relationship_verified": false
+    },
+    {
+      "id": "ssh-shell-attack-sessions",
+      "path": "../repositories/github/research/SSH-Shell-Attacks/data/raw/ssh_attacks.parquet",
+      "format": "parquet",
+      "role": "research_session_logs",
+      "verified_rows": 233035,
+      "license_status": "repository MIT license found; dataset-specific license and privacy/provenance terms not established",
+      "use_for_training": false,
+      "reason": "Session logs may contain credentials or personal identifiers; do not inspect or transform until sanitized input and authorization are provided."
+    }
+  ],
+  "reference_documents": [
+    {
+      "id": "cdm-data-model-v6-0-1",
+      "path": "../docs/references/cdm/cdm-data-model-v601-508.pdf",
+      "format": "pdf",
+      "pages": 81
+    },
+    {
+      "id": "public-cdm-ldm-v6",
+      "path": "../docs/references/cdm/PUBLIC_CDM_LDM_v6.0.pdf",
+      "format": "pdf",
+      "pages": 1
+    },
+    {
+      "id": "cisa-vulnerability-review-fy-2024-2025",
+      "path": "../docs/references/cisa/cisa-vulnerability-review-fy-2024-2025_508.pdf",
+      "format": "pdf",
+      "pages": 31
+    },
+    {
+      "id": "coordinated-vulnerability-disclosure-guide",
+      "path": "../docs/references/cisa/joint-guide-establishing-a-cvd-program-to-work-with-security-researchers_508c.pdf",
+      "format": "pdf",
+      "pages": 12
+    },
+    {
+      "id": "shell-commands-training-dataset-paper",
+      "path": "../docs/papers/Dataset_of_Shell_Commands_Used_by_Participants_of_.pdf",
+      "format": "pdf",
+      "pages": 9
+    },
+    {
+      "id": "kev-prioritization-bod-26-04",
+      "path": "../docs/references/cisa/kev-prioritization-bod-26-04.txt",
+      "format": "text"
+    }
+  ],
+  "training_candidates": [
+    {
+      "id": "master-sft-enhanced",
+      "path": "processed/master-sft-enhanced.parquet",
+      "format": "parquet",
+      "task": "supervised_fine_tuning",
+      "source_path": "sources/corpora/datasets-workbench/processed/master_sft_enhanced_unified.parquet",
+      "claimed_samples": 16874,
+      "verified_rows": 16874,
+      "message_column": "messages",
+      "claim_source": "sources/corpora/datasets-workbench/dataset_catalog.json"
+    },
+    {
+      "id": "master-sft-cleaned",
+      "path": "processed/master-sft-cleaned.parquet",
+      "format": "parquet",
+      "task": "supervised_fine_tuning",
+      "source_path": "sources/corpora/datasets-workbench/processed/master_sft_cleaned_unified.parquet",
+      "verified_rows": 16594,
+      "message_column": "messages"
+    },
+    {
+      "id": "cve-sft-v5",
+      "path": "processed/cve-sft/cve_sft_dataset_v5.parquet",
+      "format": "parquet",
+      "task": "supervised_fine_tuning",
+      "verified_rows": 10000,
+      "variant_group": "cve-sft-versions",
+      "serialization_required": true
+    },
+    {
+      "id": "cve-sft-enhanced-reasoning",
+      "path": "processed/cve-sft/cve_sft_enhanced_reasoning.parquet",
+      "format": "parquet",
+      "task": "supervised_fine_tuning",
+      "verified_rows": 10000,
+      "variant_group": "cve-sft-versions",
+      "message_column": "messages"
+    },
+    {
+      "id": "cve-sft-enhanced-v2",
+      "path": "processed/cve-sft/cve_sft_enhanced_v2.parquet",
+      "format": "parquet",
+      "task": "supervised_fine_tuning",
+      "verified_rows": 10000,
+      "variant_group": "cve-sft-versions",
+      "message_column": "messages"
+    },
+    {
+      "id": "cve-sft-enhanced-v3",
+      "path": "processed/cve-sft/cve_sft_enhanced_v3.parquet",
+      "format": "parquet",
+      "task": "supervised_fine_tuning",
+      "claimed_samples": 10000,
+      "verified_rows": 10000,
+      "variant_group": "cve-sft-versions",
+      "canonical_candidate": true,
+      "training_entrypoint": "processed/cve-sft-canonical.parquet",
+      "message_column": "messages",
+      "claim_source": "sources/corpora/datasets-workbench/dataset_catalog.json"
+    },
+    {
+      "id": "code-security-sft-v2",
+      "path": "processed/code-security-sft/code_security_enhanced_v2.parquet",
+      "format": "parquet",
+      "task": "supervised_fine_tuning",
+      "verified_rows": 5591,
+      "variant_group": "code-security-transformations",
+      "message_column": "messages"
+    },
+    {
+      "id": "code-security-enhanced-reasoning",
+      "path": "processed/code-security-sft/code_security_enhanced_reasoning.parquet",
+      "format": "parquet",
+      "task": "supervised_fine_tuning",
+      "verified_rows": 5591,
+      "variant_group": "code-security-transformations",
+      "message_column": "messages"
+    },
+    {
+      "id": "code-security-prompt-format-legacy",
+      "path": "sources/corpora/datasets-workbench/processed/code_security/train-00000-of-00001.parquet",
+      "format": "parquet",
+      "task": "supervised_fine_tuning",
+      "verified_rows": 5591,
+      "columns": ["data_source", "prompt", "ability", "reward_model", "extra_info"],
+      "message_column": null,
+      "note": "Prompt-schema alternative; not the ChatML train/validation files."
+    },
+    {
+      "id": "agent-skills-tool-calling-sft",
+      "path": "processed/agent-skills-sft/agent_skills_tool_calling_sft.parquet",
+      "format": "parquet",
+      "task": "supervised_fine_tuning",
+      "verified_rows": 284,
+      "message_column": "messages"
+    },
+    {
+      "id": "redteam-pentest-sft",
+      "path": "processed/redteam-pentest-sft/blackhat_ai_enhanced_chatml.parquet",
+      "format": "parquet",
+      "task": "supervised_fine_tuning",
+      "verified_rows": 1003,
+      "message_column": "messages"
+    }
+  ],
+  "evaluation_candidates": [
+    {
+      "id": "repo-security-grades",
+      "path": "evals/repo-security-grades/",
+      "format": "csv_and_parquet",
+      "task": "evaluation",
+      "use_for_training": false,
+      "verified_rows_per_file": 130173
+    }
+  ],
+  "split_sets": [
+    {
+      "id": "master-cleaned",
+      "train_path": "data/train-00000-of-00001.parquet",
+      "validation_path": "data/validation-00000-of-00001.parquet",
+      "key_columns": ["id"],
+      "aggregate_path": "master_sft_cleaned_unified.parquet"
+    },
+    {
+      "id": "cve-enhanced-v3",
+      "train_path": "vulnerabilities/cve-sft/data/train-00000-of-00001.parquet",
+      "validation_path": "vulnerabilities/cve-sft/data/validation-00000-of-00001.parquet",
+      "key_columns": ["cve_id"],
+      "aggregate_path": "cve_sft_enhanced_v3.parquet"
+    },
+    {
+      "id": "code-security-v2",
+      "train_path": "code_security/train-00000-of-00001.parquet",
+      "validation_path": "code_security/validation-00000-of-00001.parquet",
+      "key_columns": ["id"],
+      "aggregate_path": "code_security_enhanced_v2.parquet"
+    },
+    {
+      "id": "redteam-pentest",
+      "train_path": "redteam_pentest/data/train-00000-of-00001.parquet",
+      "validation_path": "redteam_pentest/data/validation-00000-of-00001.parquet",
+      "key_columns": ["id"],
+      "aggregate_path": "blackhat_ai_enhanced_chatml.parquet"
+    },
+    {
+      "id": "agent-skills-tool-calling",
+      "train_path": "agent_skills/agent_skills_tool_calling_sft.parquet",
+      "validation_path": "agent_skills/agent_skills_tool_calling_sft.parquet",
+      "key_columns": ["id"],
+      "aggregate_path": "agent_skills_tool_calling_sft.parquet"
+    }
+  ],
+  "generated_training_candidates": [
+    {
+      "id": "cve-record-summary-v1",
+      "path": "exports/cve-record-summary/",
+      "format": "chat-messages-jsonl",
+      "task": "supervised_fine_tuning_candidate",
+      "source_repository": "CVEProject/cvelistV5",
+      "source_revision": "bf24876406caddb0a6e6fe04bb603a5c717a78f9",
+      "train_rows": 338369,
+      "validation_rows": 37513,
+      "manifest": "exports/cve-record-summary/manifest.json",
+      "attribution": "exports/cve-record-summary/source-attribution.txt",
+      "status": "local_only; tokenizer, mixture, and rights review required before training or upload",
+      "notes": [
+        "Contains PUBLISHED CVE records with English descriptions; 9987 IDs already mentioned in registered SFT were excluded.",
+        "IDs are assigned as indivisible groups to deterministic train/validation splits.",
+        "Affected-product and version fields are capped per record; omitted-field counts are recorded in the manifest.",
+        "Pinned-tokenizer length validation against the configured 2048-token window is pending.",
+        "CNA-provided content may have additional terms; review redistribution rights before upload."
+      ]
+    }
+  ],
+  "verification_required": [
+    "Confirm each artifact exists and is readable.",
+    "Validate schemas and actual row counts.",
+    "Deduplicate across selected candidate datasets.",
+    "Check train/validation overlap and preserve evaluation separation.",
+    "Record source revisions, licenses, and preprocessing provenance."
+  ],
+  "raw_source_audit": {
+    "script": "training/scripts/audit_raw_sources.py",
+    "report": "interim/raw-source-audit.json",
+    "scope": "multiline-aware CSV structure and CVE JSON metadata; no source record text is emitted",
+    "source_revision": "bf24876406caddb0a6e6fe04bb603a5c717a78f9"
+  }
+}

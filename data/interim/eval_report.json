@@ -1,0 +1,18 @@
+{
+  "rows_scored": 20000,
+  "schema_valid_pct": 100.0,
+  "tool_call_present_pct": 100.0,
+  "grounding_rate_pct": 100.0,
+  "completion_rate_pct": 100.0,
+  "fabrication_proxy_pct": 0.0,
+  "tool_usage": {
+    "forensics_audit": 20000,
+    "vulnerability_scan": 20000,
+    "metasploit_search": 20000,
+    "c2_cve_exploit_execute": 20000
+  },
+  "interpretation": {
+    "grounding": "higher = more claims tied to real tool observations (less hallucination)",
+    "fabrication_proxy": "final_answer with NO observation - LOWER is better; target ~0"
+  }
+}

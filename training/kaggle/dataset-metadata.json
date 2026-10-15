@@ -1,0 +1,10 @@
+{
+  "title": "B13 Agent SFT Dataset",
+  "id": "b13/b13-cybersecurity-sft-dataset",
+  "licenses": [
+    {
+      "name": "CC0-1.0"
+    }
+  ],
+  "isPrivate": true
+}

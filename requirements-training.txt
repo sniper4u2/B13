@@ -1,0 +1,2 @@
+# Keep Kaggle's torch/torch_xla versions paired with its TPU runtime.
+-r training/notebooks/cloud/kaggle/requirements.txt
